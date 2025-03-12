@@ -33,6 +33,12 @@
 			    <artifactId>maven-surefire-plugin</artifactId>
 			    <version>3.5.2</version>
 			    <configuration>
+					<!--<systemProperties>
+						<property>
+							<name>allure.results.directory</name>
+							<value>./allure-results</value>
+						</property>
+					</systemProperties>-->
 					<suiteXmlFiles>
 						<!--<suiteXmlFile>${suitefilename}</suiteXmlFile>-->
 						<suiteXmlFile>testng.xml</suiteXmlFile>
