@@ -235,19 +235,6 @@ public class BookingAPI {
 		
 	}
 	
-	@When("pass the url of delete booking api in the request {}")
-	public void pass_the_url_of_delete_booking_api_in_the_request(Integer bookingId) {
-	    
-		Allure.parameter("BookingID", bookingId);
-		httpRequest = RestAssured.given();
-		httpRequest.contentType(ContentType.JSON);	
-		httpRequest.header("Cookie", "token="+token);
-		System.out.println("Token : " + token);
-		System.out.println("BookingID to delete : " + bookingId);
-		response = httpRequest.delete("/{bookingId}", bookingId);
-		
-	}
-	
 	@Then("receive the delete response code as {int}")
 	public void receive_the_delete_response_code_as(Integer int2) {	    
 
