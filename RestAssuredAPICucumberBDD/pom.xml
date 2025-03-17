@@ -40,8 +40,8 @@
 						</property>
 					</systemProperties>
 					<suiteXmlFiles>
-						<!--<suiteXmlFile>${suitefilename}</suiteXmlFile>-->
-						<suiteXmlFile>./testng.xml</suiteXmlFile>
+						<suiteXmlFile>${suitefilename}</suiteXmlFile>
+						<!--<suiteXmlFile>testng.xml</suiteXmlFile>-->
 					</suiteXmlFiles>					
 				</configuration>
 			</plugin>
