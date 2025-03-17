@@ -4,6 +4,7 @@ package com.testautomation.apitesting.stepdefs;
 
 import io.cucumber.java.en.*;
 import io.qameta.allure.Allure;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 //import com.jayway.jsonpath.JsonPath;
@@ -14,12 +15,18 @@ import io.restassured.specification.RequestSpecification;
 //import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 //import static org.junit.Assert.*;
 
 import org.testng.Assert;
 
+import com.testautomation.apitesting.utility.BaseTest;
+import com.testautomation.apitesting.utility.RestAssuredListener;
 
-public class BookingAPI {
+
+public class BookingAPI extends BaseTest {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
@@ -31,10 +38,12 @@ public class BookingAPI {
 	public JSONObject tokenDetails;
 	public static String token;
 	
+	private static final Logger logger = LogManager.getLogger(BookingAPI.class);
+	
 	//get the bookingids
 	@Given("hit the url of get booking ids api endpoint")
 	public void hit_the_url_of_get_booking_ids_api_endpoint() {
-	    
+			    
 		RestAssured.baseURI = "https://restful-booker.herokuapp.com/";	
 	}
 
@@ -42,16 +51,20 @@ public class BookingAPI {
 	public void pass_the_url_of_getbookingid_in_the_request() {
 	   
 		httpRequest = RestAssured.given();
+		httpRequest.filter(new AllureRestAssured())
+					.filter(new RestAssuredListener());
 		response = httpRequest.get("booking");		
 		JsonPath jsnpath = response.jsonPath();
 		bookingId = jsnpath.getJsonObject("bookingid[0]");
-		System.out.println("BookingId : " + bookingId);
+		//System.out.println("BookingId : " + bookingId);
 		
 	}
 	
 	//get api call
 	@Given("hit the url of get booking details api endpoint")
 	public void hit_the_url_of_get_booking_details_api_endpoint() {
+		
+		logger.info("BookingAPI execution started....");
 		
 		RestAssured.baseURI = "https://restful-booker.herokuapp.com/booking/";		
 		
@@ -61,16 +74,18 @@ public class BookingAPI {
 	public void pass_the_url_of_bookingid_in_the_request() {
 		
 		Allure.epic("BookingAPI");
-		httpRequest = RestAssured.given();
-		System.out.println("BookingId : " + bookingId);
+		httpRequest = RestAssured.given()
+					.filter(new AllureRestAssured())
+					.filter(new RestAssuredListener());
+		//System.out.println("BookingId : " + bookingId);
 		response = httpRequest.get("{bookingId}", bookingId);
 		body = response.getBody();
 		//convert response body to string
 		String responseBody = body.asString();
-		System.out.println(responseBody);
+		//System.out.println(responseBody);
 		JsonPath jsnpath = response.jsonPath();
 		String firstName = jsnpath.getJsonObject("firstname").toString();
-		System.out.println("First Name : " + firstName);
+		//System.out.println("First Name : " + firstName);
 	    
 	}
 	
@@ -85,7 +100,7 @@ public class BookingAPI {
 	@Then("verify that the firstname for the passed bookingid is {}")
 	public void verify_that_the_firstname_for_the_passed_bookingid_is(String firstname) {
 		
-		Allure.parameter("FirstName", firstname);
+		//Allure.parameter("FirstName", firstname);
 		ResponseCode = response.getStatusCode();		
 		Assert.assertEquals(ResponseCode, 200);
 		
@@ -94,7 +109,7 @@ public class BookingAPI {
 		
 		JsonPath jsnpath = response.jsonPath();
 		String fName = jsnpath.getJsonObject("firstname").toString();		
-		System.out.println("First Name : " + fName);
+		//System.out.println("First Name : " + fName);
 		
 		Assert.assertEquals(firstname, fName);		
 		
@@ -115,15 +130,15 @@ public class BookingAPI {
 		booking = new JSONObject();
 		bookingDates = new JSONObject();		
 		
-		httpRequest = RestAssured.given();
-		httpRequest.contentType(ContentType.JSON);				
+		httpRequest = RestAssured.given()
+				.contentType(ContentType.JSON);				
 		
 	}
 
 	@And("pass the request body of bookingAPI {}")
 	public void pass_the_request_body_of_bookingAPI(String firstname) {
 		
-		Allure.parameter("FirstName", firstname);
+		//Allure.parameter("FirstName", firstname);
 		
 		booking.put("firstname", firstname);
 		booking.put("lastname", "tutorial");
@@ -133,9 +148,11 @@ public class BookingAPI {
 		booking.put("bookingdates", bookingDates);
 		
 		bookingDates.put("checkin", "2023-03-25");
-		bookingDates.put("checkout", "2023-03-30");
+		bookingDates.put("checkout", "2023-03-30");		
 		
-		httpRequest.body(booking.toString());
+		httpRequest.filter(new AllureRestAssured())
+					.filter(new RestAssuredListener())
+					.body(booking.toString());
 		response = httpRequest.post("booking");
 		
 		body = response.getBody();
@@ -143,8 +160,8 @@ public class BookingAPI {
 		JsonPath jsnpath = response.jsonPath();
 		bookingId = jsnpath.getJsonObject("bookingid");
 		
-		System.out.println(response.getStatusLine());
-		System.out.println(body.asString());
+		//System.out.println(response.getStatusLine());
+		//System.out.println(body.asString());
 	}
 
 	//token generation
@@ -160,8 +177,8 @@ public class BookingAPI {
 		//prepare request body
 		tokenDetails = new JSONObject();	
 		
-		httpRequest = RestAssured.given();
-		httpRequest.contentType(ContentType.JSON);	   
+		httpRequest = RestAssured.given()
+					.contentType(ContentType.JSON);	   
 		
 	}
 	
@@ -171,13 +188,15 @@ public class BookingAPI {
 		tokenDetails.put("username", "admin");
 		tokenDetails.put("password", "password123");
 		
-		httpRequest.body(tokenDetails.toString());
+		httpRequest.filter(new AllureRestAssured())
+					.filter(new RestAssuredListener())
+					.body(tokenDetails.toString());
 		response = httpRequest.post();
 		
 		JsonPath jsnpath = response.jsonPath();
 		token = jsnpath.getJsonObject("token").toString();
 		
-		System.out.println("Token : "+token);
+		//System.out.println("Token : "+token);
 	}
 
 	//put api call
@@ -189,8 +208,7 @@ public class BookingAPI {
 	}
 
 	@When("pass the url of booking api in the request")
-	public void pass_the_url_of_booking_api_in_the_request() {
-		
+	public void pass_the_url_of_booking_api_in_the_request() {		
 		
 		httpRequest = RestAssured.given();
 		httpRequest.contentType(ContentType.JSON);	
@@ -201,7 +219,7 @@ public class BookingAPI {
 	@And("pass the request body of put bookingAPI {}")
 	public void pass_the_request_body_of_put_booking_api(String fname) {
 		
-		Allure.parameter("FirstName", fname);
+		//Allure.parameter("FirstName", fname);
 		
 		booking.put("firstname", fname);
 		booking.put("lastname", "Selenium C#");
@@ -213,16 +231,18 @@ public class BookingAPI {
 		bookingDates.put("checkin", "2018-01-01");
 		bookingDates.put("checkout", "2019-01-01");
 		
-		httpRequest.body(booking.toString());
+		httpRequest.filter(new AllureRestAssured())
+					.filter(new RestAssuredListener())
+					.body(booking.toString());
 		response = httpRequest.put("/{bookingId}",bookingId);
 		
 		body = response.getBody();
 		
-		System.out.println(body.asString());
+		//System.out.println(body.asString());
 		
 		JsonPath jsnpath = response.jsonPath();
 		String fName = jsnpath.getJsonObject("firstname").toString();		
-		System.out.println("First Name : " + fName);
+		//System.out.println("First Name : " + fName);
 		
 		Assert.assertEquals(fName, fname);
 	}
@@ -240,18 +260,20 @@ public class BookingAPI {
 
 		ResponseCode = response.getStatusCode();		
 		Assert.assertEquals(ResponseCode, 201);
+		logger.info("BookingAPI execution ended...");
 
 	}
 
 	@When("pass the url of delete booking api in the request")
 	public void pass_the_url_of_delete_booking_api_in_the_request() {
 	    
-		httpRequest = RestAssured.given();
-		httpRequest.contentType(ContentType.JSON);	
-		httpRequest.header("Cookie", "token="+token);
-		System.out.println("Token : " + token);
-		System.out.println("BookingID to delete : " + bookingId);
+		httpRequest = RestAssured.given().filter(new AllureRestAssured())
+				.filter(new RestAssuredListener())
+				.contentType(ContentType.JSON)
+				.header("Cookie", "token="+token);
+		//System.out.println("Token : " + token);
+		//System.out.println("BookingID to delete : " + bookingId);
 		response = httpRequest.delete("/{bookingId}", bookingId);
-		
+				
 	}
 }
