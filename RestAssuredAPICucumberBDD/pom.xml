@@ -41,9 +41,8 @@
 					</systemProperties>
 					<suiteXmlFiles>
 						<!--<suiteXmlFile>${suitefilename}</suiteXmlFile>-->
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
-					
+						<suiteXmlFile>./testng.xml</suiteXmlFile>
+					</suiteXmlFiles>					
 				</configuration>
 			</plugin>
 		</plugins>
