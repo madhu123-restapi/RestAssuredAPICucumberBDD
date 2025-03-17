@@ -37,7 +37,7 @@
 						<property>
 							<name>allure.results.directory</name>
 							<value>./allure-results</value>
-						</property>e
+						</property>
 					</systemProperties>
 					<suiteXmlFiles>
 						<!--<suiteXmlFile>${suitefilename}</suiteXmlFile>-->
