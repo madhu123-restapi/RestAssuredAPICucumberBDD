@@ -22,8 +22,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.testng.Assert;
 
+import com.testautomation.apitesting.listener.RestAssuredListener;
 import com.testautomation.apitesting.utility.BaseTest;
-import com.testautomation.apitesting.utility.RestAssuredListener;
 
 
 public class BookingAPI extends BaseTest {
@@ -117,7 +117,7 @@ public class BookingAPI extends BaseTest {
 	@Given("hit the url of post booking api endpoint")
 	public void hit_the_url_of_post_booking_api_endpoint() {
 		
-		logger.info("BookingAPI execution started....");
+		logger.info("BookingAPI test execution started....");
 		RestAssured.baseURI = "https://restful-booker.herokuapp.com/";
 		
 	}
@@ -257,7 +257,7 @@ public class BookingAPI extends BaseTest {
 	@Then("receive the delete response code as {int}")
 	public void receive_the_delete_response_code_as(Integer int2) {	 
 		
-		logger.info("BookingAPI execution ended...");
+		logger.info("BookingAPI test execution ended...");
 		ResponseCode = response.getStatusCode();		
 		Assert.assertEquals(ResponseCode, 201);
 		
