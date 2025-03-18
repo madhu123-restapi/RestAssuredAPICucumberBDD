@@ -62,9 +62,7 @@ public class BookingAPI extends BaseTest {
 	
 	//get api call
 	@Given("hit the url of get booking details api endpoint")
-	public void hit_the_url_of_get_booking_details_api_endpoint() {
-		
-		logger.info("BookingAPI execution started....");
+	public void hit_the_url_of_get_booking_details_api_endpoint() {		
 		
 		RestAssured.baseURI = "https://restful-booker.herokuapp.com/booking/";		
 		
@@ -119,6 +117,7 @@ public class BookingAPI extends BaseTest {
 	@Given("hit the url of post booking api endpoint")
 	public void hit_the_url_of_post_booking_api_endpoint() {
 		
+		logger.info("BookingAPI execution started....");
 		RestAssured.baseURI = "https://restful-booker.herokuapp.com/";
 		
 	}
@@ -256,12 +255,12 @@ public class BookingAPI extends BaseTest {
 	}
 	
 	@Then("receive the delete response code as {int}")
-	public void receive_the_delete_response_code_as(Integer int2) {	    
-
+	public void receive_the_delete_response_code_as(Integer int2) {	 
+		
+		logger.info("BookingAPI execution ended...");
 		ResponseCode = response.getStatusCode();		
 		Assert.assertEquals(ResponseCode, 201);
-		logger.info("BookingAPI execution ended...");
-
+		
 	}
 
 	@When("pass the url of delete booking api in the request")
