@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-18T15:46:09 IST" name="Suite" finished-at="2025-03-18T15:46:16 IST" duration-ms="6691">
+  <suite started-at="2025-03-18T18:45:13 IST" name="Suite" finished-at="2025-03-18T18:45:20 IST" duration-ms="7644">
     <groups>
     </groups>
-    <test started-at="2025-03-18T15:46:09 IST" name="Test" finished-at="2025-03-18T15:46:16 IST" duration-ms="6691">
+    <test started-at="2025-03-18T18:45:13 IST" name="Test" finished-at="2025-03-18T18:45:20 IST" duration-ms="7644">
       <class name="com.testautomation.apitesting.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:09 IST" name="setUpClass" finished-at="2025-03-18T15:46:09 IST" duration-ms="462" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:13 IST" name="setUpClass" finished-at="2025-03-18T18:45:13 IST" duration-ms="495" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:09 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:13 IST" duration-ms="3745" status="PASS">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:13 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:18 IST" duration-ms="4243" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:13 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:14 IST" duration-ms="526" status="PASS">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:18 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:18 IST" duration-ms="563" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -43,7 +43,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:14 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:14 IST" duration-ms="432" status="PASS">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:18 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:19 IST" duration-ms="496" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -59,7 +59,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:14 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:15 IST" duration-ms="458" status="PASS">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:19 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:19 IST" duration-ms="566" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -75,7 +75,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:15 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:15 IST" duration-ms="464" status="PASS">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:19 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:20 IST" duration-ms="584" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -91,7 +91,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:15 IST" name="feature" data-provider="features" finished-at="2025-03-18T15:46:16 IST" duration-ms="469" status="FAIL">
+        <test-method signature="feature(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:20 IST" name="feature" data-provider="features" finished-at="2025-03-18T18:45:20 IST" duration-ms="529" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -104,28 +104,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [200] but found [201]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [200] but found [201]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:1419)
-at org.testng.Assert.assertEquals(Assert.java:1383)
-at org.testng.Assert.assertEquals(Assert.java:1429)
-at com.testautomation.apitesting.stepdefs.BookingAPI.receive_the_delete_response_code_as(BookingAPI.java:263)
-at ✽.receive the delete response code as 201(file:///C:/Users/220040/git/RestAssuredAPICucumberBDD/RestAssuredAPICucumberBDD/./features/EndToEndBookingAPI.feature:55)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@411341bd]" started-at="2025-03-18T15:46:16 IST" name="tearDownClass" finished-at="2025-03-18T15:46:16 IST" duration-ms="61" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.testautomation.apitesting.runner.TestRunnerTestNG@68b32e3e]" started-at="2025-03-18T18:45:20 IST" name="tearDownClass" finished-at="2025-03-18T18:45:20 IST" duration-ms="73" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
