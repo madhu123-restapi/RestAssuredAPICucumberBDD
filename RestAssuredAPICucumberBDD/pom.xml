@@ -124,6 +124,13 @@
 		    <artifactId>slf4j-api</artifactId>
 		    <version>1.7.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/dev.failsafe/failsafe -->
+		<dependency>
+		    <groupId>dev.failsafe</groupId>
+		    <artifactId>failsafe</artifactId>
+		    <version>3.3.2</version>
+		</dependency>
 
 			
 	</dependencies>
